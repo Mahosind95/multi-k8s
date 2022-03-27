@@ -9,10 +9,10 @@ script:
    - docker run -e CI=true mahosind95/react-test npm test
 
 after_success:
-  - docker build mahosind95/mutli-client ./client
-  - docker build mahosind95/mutli-nginx ./nginx
-  - docker build mahosind95/mutli-server ./server
-  - docker build mahosind95/mutli-worker ./worker
+  - docker build -t mahosind95/mutli-client ./client
+  - docker build -t mahosind95/mutli-nginx ./nginx
+  - docker build -t mahosind95/mutli-server ./server
+  - docker build -t mahosind95/mutli-worker ./worker
   #Login to docker ui
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin  
 
